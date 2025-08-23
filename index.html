@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QAI Technology Solutions</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .logo-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: left;
+            align-items: left;
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+        .dark .logo-container {
+            background-color: #111827;
+            color: #f3f4f6;
+        }
+        /* Style for active navigation link */
+        .nav-link.active {
+            font-weight: 700;
+            border-bottom: 2px solid white;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
+    <!-- Header Section -->
+    <header class="bg-indigo-600 dark:bg-indigo-900 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo/Site Title -->
+             <div class="flex items-center space-x-4">
+                <!-- The Logo -->
+                <svg width="250" height="100" viewBox="0 0 250 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto">
+                    <!-- The 'Q' letter -->
+                    <path d="M40 20C40 8.95431 48.9543 0 60 0H140C151.046 0 160 8.95431 160 20V80C160 91.0457 151.046 100 140 100H60C48.9543 100 40 91.0457 40 80V20Z" fill="#38BDF8" class="dark:fill-sky-400"/>
+                    <!-- The 'A' letter -->
+                    <path d="M120 100L160 0L200 100H180L170 75H130L120 100H120Z" fill="#6366F1" class="dark:fill-indigo-400"/>
+                    <rect x="135" y="45" width="30" height="10" fill="#ffffff" class="dark:fill-gray-800"/>
+                    <!-- The 'I' letter -->
+                    <rect x="220" y="0" width="20" height="100" fill="#38BDF8" class="dark:fill-sky-400"/>
+                    <!-- The little tail of the Q -->
+                    <circle cx="160" cy="100" r="10" fill="#6366F1" class="dark:fill-indigo-400"/>
+                    <rect x="150" y="100" width="10" height="20" fill="#6366F1" class="dark:fill-indigo-400"/>
+                </svg>
+
+             </div>
+             <div class="mt-4 items-right">
+                    <h1 class="text-3xl font-extrabold text-white dark:text-white">QAI Technology Solutions</h1>
+                    <p class="text-sm text-white dark:text-gray-400 font-medium"></p>
+            </div>
+             
+            
+            <!-- Navigation Menu -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="#home" class="nav-link text-white hover:text-indigo-200 transition-colors">Home</a>
+                <a href="#products" class="nav-link text-white hover:text-indigo-200 transition-colors">Products</a>
+                <a href="#solutions" class="nav-link text-white hover:text-indigo-200 transition-colors">Solutions</a>
+                <a href="#about" class="nav-link text-white hover:text-indigo-200 transition-colors">About</a>
+                <a href="#contact-us" class="nav-link text-white hover:text-indigo-200 transition-colors">Contact Us</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-indigo-600 dark:bg-indigo-900 border-t border-indigo-700 dark:border-indigo-800">
+            <a href="#home" class="nav-link block py-2 px-6 text-white hover:bg-indigo-700 dark:hover:bg-indigo-800 transition-colors">Home</a>
+            <a href="#products" class="nav-link block py-2 px-6 text-white hover:bg-indigo-700 dark:hover:bg-indigo-800 transition-colors">Products</a>
+            <a href="#solutions" class="nav-link block py-2 px-6 text-white hover:bg-indigo-700 dark:hover:bg-indigo-800 transition-colors">Solutions</a>
+            <a href="#about" class="nav-link block py-2 px-6 text-white hover:bg-indigo-700 dark:hover:bg-indigo-800 transition-colors">About</a>
+            <a href="#contact-us" class="nav-link block py-2 px-6 text-white hover:bg-indigo-700 dark:hover:bg-indigo-800 transition-colors">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- Main Content Sections -->
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- All content sections are now wrapped in a container with a common class to manage visibility -->
+        <div id="content-container">
+
+            <!-- Home Section -->
+            <section class="page-section" id="home">
+                <!-- Hero Section -->
+                <div class="text-center py-20">
+                    <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight mb-4">
+                        Welcome to QAI Technology Solutions
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+                        Your partner in building the future with innovative and intelligent solutions.
+                    </p>
+                    <a href="#contact-us" class="nav-link bg-indigo-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-700 transition-colors">
+                        Get a Quote
+                    </a>
+                </div>
+
+                <!-- Mission & Vision Section (Moved from previous page) -->
+                <section class="py-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Mission Card -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8">
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Our Mission</h2>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            To deliver cutting-edge technology solutions that empower businesses to innovate, grow, and succeed in a rapidly evolving digital world.
+                        </p>
+                    </div>
+                    <!-- Vision Card -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8">
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Our Vision</h2>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            To be the leading provider of intelligent technology, recognized for our commitment to excellence, customer satisfaction, and a sustainable future.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Featured Solutions Section (New to Home) -->
+                <section class="py-16">
+                    <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">Featured Solutions</h2>
+                    <p class="text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12">
+                        We create custom solutions to solve your most complex challenges. Here are a few examples of what we do.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Solution Card 1 -->
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 text-center">
+                            <div class="text-5xl text-indigo-600 dark:text-indigo-400 mb-4">⚙️</div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Industrial Automation</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Streamline operations and increase efficiency with our custom automation solutions.</p>
+                        </div>
+                        <!-- Solution Card 2 -->
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 text-center">
+                            <div class="text-5xl text-indigo-600 dark:text-indigo-400 mb-4">🛒</div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">E-Commerce Optimization</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Boost your online sales with our tailored e-commerce platforms and strategies.</p>
+                        </div>
+                        <!-- Solution Card 3 -->
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 text-center">
+                            <div class="text-5xl text-indigo-600 dark:text-indigo-400 mb-4">🏥</div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Healthcare IT</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Secure and compliant IT solutions designed specifically for the healthcare industry.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Simple CTA Section (New) -->
+                <section class="py-16">
+                    <div class="bg-indigo-600 dark:bg-indigo-900 rounded-lg shadow-xl p-12 text-center">
+                        <h2 class="text-4xl font-bold text-white mb-4">Ready to Transform Your Business?</h2>
+                        <p class="text-lg text-indigo-200 dark:text-indigo-300 mb-8">
+                            Let's build something amazing together. Contact us today for a free consultation.
+                        </p>
+                        <a href="#contact-us" class="nav-link bg-white text-indigo-600 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-gray-200 transition-colors">
+                            Contact Us
+                        </a>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Products Section -->
+            <section class="page-section hidden" id="products">
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">Our Products</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Product Card 1 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 text-center">
+                        <div class="text-5xl text-indigo-600 dark:text-indigo-400 mb-4">📊</div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Data Analytics Platform</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Transform raw data into actionable insights with our powerful analytics suite.</p>
+                    </div>
+                    <!-- Product Card 2 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 text-center">
+                        <div class="text-5xl text-indigo-600 dark:text-indigo-400 mb-4">🛡️</div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Cybersecurity Suite</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Protect your assets and secure your network with our advanced security tools.</p>
+                    </div>
+                    <!-- Product Card 3 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 text-center">
+                        <div class="text-5xl text-indigo-600 dark:text-indigo-400 mb-4">☁️</div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Cloud Infrastructure</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Scalable and reliable cloud solutions designed for modern business needs.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Solutions Section -->
+            <section class="page-section hidden" id="solutions">
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">Our Solutions</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Solution Card 1 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 text-center">
+                        <div class="text-5xl text-indigo-600 dark:text-indigo-400 mb-4">⚙️</div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Industrial Automation</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Streamline operations and increase efficiency with our custom automation solutions.</p>
+                    </div>
+                    <!-- Solution Card 2 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 text-center">
+                        <div class="text-5xl text-indigo-600 dark:text-indigo-400 mb-4">🛒</div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">E-Commerce Optimization</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Boost your online sales with our tailored e-commerce platforms and strategies.</p>
+                    </div>
+                    <!-- Solution Card 3 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 text-center">
+                        <div class="text-5xl text-indigo-600 dark:text-indigo-400 mb-4">🏥</div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Healthcare IT</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Secure and compliant IT solutions designed specifically for the healthcare industry.</p>
+                    </div>
+                </div>
+            </section>
+
+            
+            <!-- About Section -->
+            <section class="page-section hidden" id="about">
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 md:flex items-center">
+                    <!-- Updated container for the image to allow for centering and resizing -->
+                    <div class="md:w-1/2 md:pr-8 mb-6 md:mb-0">
+                        <!-- New image replacing the old one with responsive sizing -->
+                        <img src="digital-art-ai-technology-background.jpg" alt="A futuristic digital art image of a human head overlaid with glowing circuit patterns." class="rounded-lg shadow-md max-w-sm h-auto object-cover mx-auto">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">About QAI Technology Solutions</h2>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                            We are a passionate team of innovators dedicated to solving complex problems with simple, effective, and elegant technology. We believe in the power of collaboration and continuous learning to stay ahead of the curve.
+                        </p>
+                        <p class="text-600 dark:text-gray-300 leading-relaxed">
+                            Our journey began with a simple idea: to make advanced technology accessible to everyone. Today, we continue to grow, guided by our core values of integrity, quality, and a relentless pursuit of innovation.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="page-section hidden" id="contact-us">
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 max-w-xl mx-auto">
+                    <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-6">Contact Us</h2>
+                    <!-- The form is updated to be functional -->
+                    <form id="contact-form" action="https://formspree.io/f/myzdgggv" method="POST">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600" required></textarea>
+                        </div>
+                        <!-- A hidden input field for spam prevention, as recommended by Formspree -->
+                        <input type="text" name="_gotcha" style="display:none" />
+                        <button type="submit" class="w-full bg-indigo-600 text-white font-semibold py-3 px-4 rounded-lg shadow-lg hover:bg-indigo-700 transition-colors">
+                            Send Message
+                        </button>
+                        <!-- A message box to display success or error messages -->
+                        <div id="form-status" class="mt-4 text-center font-medium"></div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Privacy Policy Section (New) -->
+            <section class="page-section hidden" id="privacy-policy">
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Privacy Policy</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from QAI Technology Solutions.
+                    </p>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Personal Information We Collect</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        When you visit the Site, we automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some of the cookies that are installed on your device. Additionally, as you browse the Site, we collect information about the individual web pages or products that you view, what websites or search terms referred you to the Site, and information about how you interact with the Site.
+                    </p>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">How We Use Your Personal Information</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        We use the Order Information that we collect generally to fulfill any orders placed through the Site (including processing your payment information, arranging for shipping, and providing you with invoices and/or order confirmations).
+                    </p>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Your Rights</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        If you are a European resident, you have the right to access personal information we hold about you and to ask that your personal information be corrected, updated, or deleted. If you would like to exercise this right, please contact us through the contact information below.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Terms of Service Section (New) -->
+            <section class="page-section hidden" id="terms-of-service">
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Terms of Service</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Welcome to QAI Technology Solutions. By accessing or using our website, you agree to be bound by these Terms of Service. Please read them carefully.
+                    </p>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Acceptance of Terms</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        By using this website, you signify your acceptance of these terms. If you do not agree to these terms, please do not use our website.
+                    </p>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Intellectual Property Rights</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        All content, trademarks, and data on this website, including but not limited to software, databases, text, graphics, icons, hyperlinks, private information, and designs, are the property of QAI Technology Solutions.
+                    </p>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">User Conduct</h3>
+                    <p class="text-600 dark:text-gray-300">
+                        You agree not to use the website for any purpose that is unlawful or prohibited by these terms. This includes but is not limited to, using the website to defame, harass, or impersonate others.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 dark:bg-gray-900 text-white py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 QAI Technology Solutions. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="#privacy-policy" class="nav-link text-gray-400 hover:text-white mx-2">Privacy Policy</a>
+                <a href="#terms-of-service" class="nav-link text-gray-400 hover:text-white mx-2">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu and dynamic content loading -->
+    <script>
+        // Get references to the button and the mobile menu
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Add an event listener to the button
+        mobileMenuButton.addEventListener('click', () => {
+            // Toggle the 'hidden' class on the mobile menu
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Function to handle navigation and show/hide content sections
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.page-section');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                // Hide all sections
+                sections.forEach(section => {
+                    section.classList.add('hidden');
+                });
+                
+                // Remove active class from all links
+                navLinks.forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+
+                // Get the target section's ID from the href and show it
+                const targetId = event.target.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.classList.remove('hidden');
+                    // Add active class to the clicked link
+                    event.target.classList.add('active');
+                }
+
+                // Hide mobile menu after a link is clicked
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Show the home page on initial load
+        document.addEventListener('DOMContentLoaded', () => {
+            const homeLink = document.querySelector('.nav-link[href="#home"]');
+            const homeSection = document.getElementById('home');
+            if (homeLink && homeSection) {
+                homeLink.classList.add('active');
+                homeSection.classList.remove('hidden');
+            }
+        });
+        // Handle form submission
+        const form = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent the default form submission
+
+            const formData = new FormData(form);
+            const actionUrl = form.action;
+
+            // Clear previous messages and disable the button
+            formStatus.textContent = "Sending...";
+            formStatus.classList.remove('text-red-500', 'text-green-500');
+            form.querySelector('button').disabled = true;
+
+            try {
+                const response = await fetch(actionUrl, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Success!
+                    formStatus.textContent = "Message sent successfully! We will get back to you shortly.";
+                    formStatus.classList.add('text-green-500');
+                    form.reset(); // Clear the form
+                } else {
+                    // Error
+                    const result = await response.json();
+                    if (Object.hasOwn(result, 'errors')) {
+                        // Formspree error messages
+                        formStatus.textContent = result.errors.map(e => e.field).join(', ');
+                    } else {
+                        formStatus.textContent = "An error occurred. Please try again.";
+                    }
+                    formStatus.classList.add('text-red-500');
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                formStatus.textContent = "Network error. Please try again later.";
+                formStatus.classList.add('text-red-500');
+            } finally {
+                form.querySelector('button').disabled = false; // Re-enable the button
+            }
+        });
+    </script>
+
+</body>
+</html>
