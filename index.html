@@ -240,14 +240,14 @@
                     <!-- New Product Card 2: Custom ChatBots -->
                     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 text-center">
                         <div class="text-5xl text-indigo-600 dark:text-indigo-400 mb-4">🤖</div>
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Custom ChatBots</h3>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">AI Assistants</h3>
                         <p class="text-gray-600 dark:text-gray-300">Enhance customer service and automate workflows with intelligent, purpose-built conversational agents.</p>
                     </div>
                     <!-- Product Card 3 -->
                     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 text-center">
-                        <div class="text-5xl text-indigo-600 dark:text-indigo-400 mb-4">🛡️</div>
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Cybersecurity Suite</h3>
-                        <p class="text-gray-600 dark:text-gray-300">Protect your assets and secure your network with our advanced security tools.</p>
+                        <div class="text-5xl text-indigo-600 dark:text-indigo-400 mb-4">⚙️</div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Intelligent Automation</h3>
+                        <p class="text-gray-600 dark:text-gray-300">We develop AI agents across different tiers—from Tier 1 for light-scale automation to Tier 3 for complex, enterprise-level solutions—addressing problems of varying complexity.</p>
                     </div>
                     <!-- Product Card 4 -->
                     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 text-center">
@@ -835,7 +835,7 @@
         const privacypolicyLink = document.getElementById('privacy-policy-link');
         const termsofserviceLink = document.getElementById('terms-of-service-link');
         const aboutLink = document.getElementById('about-link');
-        const contactusLink = document.getElementById('conduct-us-link');
+        const contactusLink = document.getElementById('contact-us-link');
         const bookingLink = document.getElementById('booking-link');
 
         
@@ -874,13 +874,51 @@
         }
 
         /**
+         * Toggles the active class on navigation links.
+         * @param {string} targetId - The ID of the target section.
+         
+        function setActiveLink(targetId) {
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + targetId) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        /**
          * Handles the click event for navigation links.
          * @param {Event} event - The click event object.
-         */
+         
+        function handleNavLinkClick(event) {
+            const targetId = event.currentTarget.getAttribute('href').substring(1);
+            hideAllSections();
+            document.getElementById(targetId).classList.remove('hidden');
+            setActiveLink(targetId);
+            // Hide mobile menu after click
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+            // If the user navigated away from the blog, reset the view
+            if (targetId !== 'blog') {
+                blogListContainer.classList.remove('hidden');
+                blogPostDetailSection.classList.add('hidden');
+            }
+        }
+
+        // Add event listeners to the navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', handleNavLinkClick);
+        });
+        */
+
+        /**
+         * Handles the click event for navigation links.
+         * @param {Event} event - The click event object.
+        */
         function handleNavLinkClick(event) {
             // Prevent default link behavior
             event.preventDefault();
-            
             
             // Get the element that was clicked
             const clickedElement = event.target;
@@ -901,6 +939,19 @@
                 hideAllContent();
             }
         }
+       
+        // Add event listeners to the navigation links and the new blog buttons
+        homeLink.addEventListener('click', handleNavLinkClick);
+        productsLink.addEventListener('click', handleNavLinkClick);
+        solutionsLink.addEventListener('click', handleNavLinkClick);
+        productsToBlogBtn.addEventListener('click', handleNavLinkClick);
+        solutionsToBlogBtn.addEventListener('click', handleNavLinkClick);
+        privacypolicyLink.addEventListener('click', handleNavLinkClick);
+        termsofserviceLink.addEventListener('click', handleNavLinkClick);
+        aboutLink.addEventListener('click', handleNavLinkClick);
+        contactusLink.addEventListener('click', handleNavLinkClick);
+        bookingLink.addEventListener('click', handleNavLinkClick);
+        
 
         /**
          * Shows the content for a specific blog post.
@@ -915,18 +966,6 @@
                 blogPostDetailContent.classList.remove('hidden');
             }
         }
-
-        // Add event listeners to the navigation links and the new blog buttons
-        homeLink.addEventListener('click', handleNavLinkClick);
-        productsLink.addEventListener('click', handleNavLinkClick);
-        solutionsLink.addEventListener('click', handleNavLinkClick);
-        productsToBlogBtn.addEventListener('click', handleNavLinkClick);
-        solutionsToBlogBtn.addEventListener('click', handleNavLinkClick);
-        privacypolicyLink.addEventListener('click', handleNavLinkClick);
-        termsofserviceLink.addEventListener('click', handleNavLinkClick);
-        aboutLink.addEventListener('click', handleNavLinkClick);
-        contactusLink.addEventListener('click', handleNavLinkClick);
-        bookingLink.addEventListener('click', handleNavLinkClick);
 
         // Add event listeners for the specific blog post links
         blogPostLinks.forEach(link => {
