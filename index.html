@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QAI Technology Solutions</title>
+    <title>QAI Core</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Inter Font -->
@@ -30,6 +30,29 @@
             font-weight: 700;
             border-bottom: 2px solid white;
         }
+        /* CORRECT FIX: Ensure the dropdown is hidden by default */
+        .dropdown-menu {
+            display: none;
+        }
+        .dropdown-menu.active {
+            display: block;
+        }
+        /* New custom styling for the use case cards */
+        .use-case-card {
+            min-height: 25rem; /* Ensures consistent height across cards */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        /* Style for the blog button */
+        .blog-button {
+            transition: all 0.3s ease-in-out;
+            transform: scale(1);
+        }
+        .blog-button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+        }
     </style>
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
@@ -55,20 +78,34 @@
 
              </div>
              <div class="mt-4 items-right">
-                    <h1 class="text-3xl font-extrabold text-white dark:text-white">QAI Technology Solutions</h1>
+                    <h1 class="text-3xl font-extrabold text-white dark:text-white">QAI Core</h1>
                     <p class="text-sm text-white dark:text-gray-400 font-medium"></p>
             </div>
              
             
             <!-- Navigation Menu -->
             <nav class="hidden md:flex space-x-6">
-                <a href="#home" class="nav-link text-white hover:text-indigo-200 transition-colors">Home</a>
-                <a href="#products" class="nav-link text-white hover:text-indigo-200 transition-colors">Products</a>
-                <a href="#solutions" class="nav-link text-white hover:text-indigo-200 transition-colors">Solutions</a>
-                <a href="#about" class="nav-link text-white hover:text-indigo-200 transition-colors">About</a>
-                <a href="#contact-us" class="nav-link text-white hover:text-indigo-200 transition-colors">Contact Us</a>
+                <a href="#home" id="home-link" class="nav-link text-white hover:text-indigo-200 transition-colors">Home</a>
+                <a href="#products" id="products-link" class="nav-link text-white hover:text-indigo-200 transition-colors">Products</a>
+                <!-- What We Do Dropdown - FIXED with JS -->
+                <div class="relative" id="what-we-do-dropdown-container">
+                    <button id="what-we-do-button" class="flex items-center text-white hover:text-indigo-200 transition-colors focus:outline-none">
+                        What We Do
+                        <svg class="ml-2 w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <!-- Added p-2 to the dropdown div to increase the hover area -->
+                    <div id="what-we-do-menu" class="dropdown-menu absolute bg-indigo-600 dark:bg-indigo-900 text-white rounded-md shadow-lg z-50 mt-2 min-w-[150px] p-2">
+                        <a href="#solutions" id="solutions-link" class="nav-link block px-4 py-2 rounded-md hover:bg-indigo-700 dark:hover:bg-indigo-800 transition-colors">Solutions</a>
+                        <a href="#use-cases" class="nav-link block px-4 py-2 rounded-md hover:bg-indigo-700 dark:hover:bg-indigo-800 transition-colors">Use Cases</a>
+                    </div>
+                </div>
+                <!-- <a href="#solutions" id="solutions-link" class="nav-link text-white hover:text-indigo-200 transition-colors">Solutions</a> -->
+                <a href="#about" id="about-link" class="nav-link text-white hover:text-indigo-200 transition-colors">About Us</a>
+                <a href="#contact-us" id="contact-us-link" class="nav-link text-white hover:text-indigo-200 transition-colors">Contact Us</a>
                 <!-- New nav link for booking -->
-                <a href="#booking" class="nav-link text-white hover:text-indigo-200 transition-colors">Book a Consultancy</a>
+                <a href="#booking" id="booking-link" class="nav-link text-white hover:text-indigo-200 transition-colors">Book a Consultancy</a>
             </nav>
             
             <!-- Mobile Menu Button -->
@@ -79,13 +116,25 @@
 
         <!-- Mobile Menu (Hidden by default) -->
         <div id="mobile-menu" class="hidden md:hidden bg-indigo-600 dark:bg-indigo-900 border-t border-indigo-700 dark:border-indigo-800">
-            <a href="#home" class="nav-link block py-2 px-6 text-white hover:bg-indigo-700 dark:hover:bg-indigo-800 transition-colors">Home</a>
-            <a href="#products" class="nav-link block py-2 px-6 text-white hover:bg-indigo-700 dark:hover:bg-indigo-800 transition-colors">Products</a>
-            <a href="#solutions" class="nav-link block py-2 px-6 text-white hover:bg-indigo-700 dark:hover:bg-indigo-800 transition-colors">Solutions</a>
-            <a href="#about" class="nav-link block py-2 px-6 text-white hover:bg-indigo-700 dark:hover:bg-indigo-800 transition-colors">About</a>
-            <a href="#contact-us" class="nav-link block py-2 px-6 text-white hover:bg-indigo-700 dark:hover:bg-indigo-800 transition-colors">Contact Us</a>
+            <a href="#home" id="home-link" class="nav-link block py-2 px-6 text-white hover:bg-indigo-700 dark:hover:bg-indigo-800 transition-colors">Home</a>
+            <a href="#products" id="products-link" class="nav-link block py-2 px-6 text-white hover:bg-indigo-700 dark:hover:bg-indigo-800 transition-colors">Products</a>
+
+            <button id="mobile-what-we-do" class="flex items-center justify-between w-full py-2 px-6 text-white hover:bg-indigo-700 dark:hover:bg-indigo-800 transition-colors focus:outline-none">
+                <span>What We Do</span>
+                <svg class="ml-2 w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </button>
+            <div id="mobile-what-we-do-dropdown" class="hidden bg-indigo-700 dark:bg-indigo-800">
+                <a href="#solutions" id="solutions-link" class="nav-link block py-2 pl-10 pr-6 text-white hover:bg-indigo-800 dark:hover:bg-indigo-900">Solutions</a>
+                <a href="#use-cases" class="nav-link block py-2 pl-10 pr-6 text-white hover:bg-indigo-800 dark:hover:bg-indigo-900">Use Cases</a>
+            </div>
+
+            <!-- <a href="#solutions" id="solutions-link" class="nav-link block py-2 px-6 text-white hover:bg-indigo-700 dark:hover:bg-indigo-800 transition-colors">Solutions</a> -->
+            <a href="#about" id="about-link" class="nav-link block py-2 px-6 text-white hover:bg-indigo-700 dark:hover:bg-indigo-800 transition-colors">About Us</a>
+            <a href="#contact-us" id="contact-us-link" class="nav-link block py-2 px-6 text-white hover:bg-indigo-700 dark:hover:bg-indigo-800 transition-colors">Contact Us</a>
             <!-- New mobile nav link for booking -->
-            <a href="#booking" class="nav-link block py-2 px-6 text-white hover:bg-indigo-700 dark:hover:bg-indigo-800 transition-colors">Book a Consultancy</a>
+            <a href="#booking" id="booking-link" class="nav-link block py-2 px-6 text-white hover:bg-indigo-700 dark:hover:bg-indigo-800 transition-colors">Book a Consultancy</a>
         </div>
     </header>
 
@@ -100,10 +149,10 @@
                 <!-- Hero Section -->
                 <div class="text-center py-20">
                     <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight mb-4">
-                        Welcome to QAI Technology Solutions
+                        Welcome to QAI Core
                     </h1>
                     <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
-                        Your partner in building the future with innovative and intelligent solutions.
+                        The architects of future AI, we solve complex problems and deliver tangible value through cutting-edge technology.
                     </p>
                     <!-- Updated home page button to point to the new booking section -->
                     <a href="#booking" class="nav-link bg-indigo-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-700 transition-colors">
@@ -207,6 +256,12 @@
                         <p class="text-gray-600 dark:text-gray-300">Scalable and reliable cloud solutions designed for modern business needs.</p>
                     </div>
                 </div>
+                <!-- Blog link as a prominent button on the Solutions page -->
+                <div class="mt-8 text-center">
+                    <a href="#" id="products-to-blog" class="blog-button inline-block px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-800">
+                        View Our Blog
+                    </a>
+                </div>
             </section>
 
             <!-- Solutions Section -->
@@ -267,7 +322,154 @@
                         </div>
                     </div>
                 </div>
+                <!-- Blog link as a prominent button on the Solutions page -->
+                <div class="mt-8 text-center">
+                    <a href="#" id="solutions-to-blog" class="blog-button inline-block px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-800">
+                        View Our Blog
+                    </a>
+                </div>
             </section>
+
+            <!-- Use Cases Section (New) -->
+            <section class="page-section" id="use-cases">
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">Featured Use Cases</h2>
+                <!-- Use Case Carousel Container -->
+                <div id="use-case-carousel" class="relative">
+                    <!-- The Use Case Cards (will be shown/hidden by JS) -->
+                    
+                    <!-- Use Case Card 1: Intelligent Restaurant Ordering -->
+                    <div class="use-case-card p-8 bg-white dark:bg-gray-800 rounded-lg shadow-xl" data-index="0">
+                        <div class="flex items-center mb-4">
+                            <div class="text-4xl text-indigo-600 dark:text-indigo-400 mr-4">🍽️</div>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Intelligent Restaurant Ordering</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            We've developed a smart AI system for restaurants that handles reservations, takes orders directly from customers via voice or text, and manages table seating. This reduces staff workload, minimizes errors, and enhances the overall dining experience.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
+                            <li><strong>Problem:</strong> High number of manual ordering errors and slow service during peak hours.</li>
+                            <li><strong>Solution:</strong> A custom AI ordering platform integrated with the restaurant's POS system.</li>
+                            <li><strong>Outcome:</strong> 30% increase in order accuracy and a 20% reduction in average wait times.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Use Case Card 2: Voice AI Call Quality Control -->
+                    <div class="use-case-card p-8 bg-white dark:bg-gray-800 rounded-lg shadow-xl hidden" data-index="1">
+                        <div class="flex items-center mb-4">
+                            <div class="text-4xl text-indigo-600 dark:text-indigo-400 mr-4">📞</div>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Voice AI Call Quality Control</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Our AI solution monitors customer service calls in real-time, analyzing sentiment, tone, and key phrases to ensure quality standards are met. It provides instant feedback to agents and generates comprehensive reports for management.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
+                            <li><strong>Problem:</strong> Inconsistent call quality and lengthy manual review processes.</li>
+                            <li><strong>Solution:</strong> An AI-powered call analysis and quality control system.</li>
+                            <li><strong>Outcome:</strong> 50% faster quality assurance process and a 15% increase in agent performance.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Use Case Card 3: Patient Health 360° View -->
+                    <div class="use-case-card p-8 bg-white dark:bg-gray-800 rounded-lg shadow-xl hidden" data-index="2">
+                        <div class="flex items-center mb-4">
+                            <div class="text-4xl text-indigo-600 dark:text-indigo-400 mr-4">🧑‍⚕️</div>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Patient Health 360° View</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            We created an AI system for healthcare providers that aggregates patient data from multiple sources—EHRs, wearables, and lab results—into a single, unified view. This gives doctors a complete picture of a patient's health, leading to more informed decisions.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
+                            <li><strong>Problem:</strong> Dispersed patient data making it difficult to get a complete health profile.</li>
+                            <li><strong>Solution:</strong> A data aggregation and visualization platform powered by AI.</li>
+                            <li><strong>Outcome:</strong> Improved diagnostic accuracy and more personalized patient care plans.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Use Case Card 4: Streamlined Non-Emergency Calls -->
+                    <div class="use-case-card p-8 bg-white dark:bg-gray-800 rounded-lg shadow-xl hidden" data-index="3">
+                        <div class="flex items-center mb-4">
+                            <div class="text-4xl text-indigo-600 dark:text-indigo-400 mr-4">🚨</div>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Streamlined Non-Emergency Calls</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Our AI agent intelligently handles non-emergency calls for public services, such as reporting a pothole or requesting information about city services. It accurately identifies caller intent and routes the call to the correct department or provides an automated solution.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
+                            <li><strong>Problem:</strong> Overwhelmed call centers with a high volume of non-urgent inquiries.</li>
+                            <li><strong>Solution:</strong> An intelligent conversational AI agent for call routing.</li>
+                            <li><strong>Outcome:</strong> Reduced call wait times by 40% and improved efficiency for emergency dispatchers.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Use Case Card 5: AI-Powered Note Taking -->
+                    <div class="use-case-card p-8 bg-white dark:bg-gray-800 rounded-lg shadow-xl hidden" data-index="4">
+                        <div class="flex items-center mb-4">
+                            <div class="text-4xl text-indigo-600 dark:text-indigo-400 mr-4">📝</div>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white">AI-Powered Note Taking</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            We've developed AI agents that can listen to meetings and automatically generate concise summaries, action items, and key decisions. This allows teams to focus on the conversation without the distraction of manual note-taking.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
+                            <li><strong>Problem:</strong> Inefficient and time-consuming manual note-taking during meetings.</li>
+                            <li><strong>Solution:</strong> A smart AI agent that automatically captures and summarizes key information.</li>
+                            <li><strong>Outcome:</strong> Increased meeting productivity and ensured no critical details are missed.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="absolute inset-y-0 left-0 flex items-center">
+                        <button id="prev-case-btn" class="p-2 rounded-full text-indigo-600 dark:text-indigo-400 bg-white dark:bg-gray-700 shadow-md focus:outline-none hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                    </div>
+                    <div class="absolute inset-y-0 right-0 flex items-center">
+                        <button id="next-case-btn" class="p-2 rounded-full text-indigo-600 dark:text-indigo-400 bg-white dark:bg-gray-700 shadow-md focus:outline-none hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Indicator -->
+                    <div id="case-indicator" class="mt-4 text-center text-sm font-semibold text-gray-600 dark:text-gray-400">1 of 5</div>
+                </div>
+            </section>
+            
+            <!-- Blog List Content Section (initially hidden) -->
+            <div id="blog-content" class="content-section hidden">
+                <h2 class="text-3xl font-bold mb-4">Our Blog</h2>
+                <p class="text-black-300 leading-relaxed">
+                    Welcome to our blog! Stay up to date with the latest industry news, insights, and innovations. We share articles about new technologies, best practices, and our unique approach to solving complex problems.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
+                    <!-- Blog Post 1 -->
+                    <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden p-4 border border-gray-700">
+                        <a href="#" data-post-id="generative-ai" class="blog-post-link block hover:underline">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-50">The Rise of Generative AI</h3>
+                            <p class="text-gray-400 text-sm">A deep dive into how generative models are changing the creative landscape...</p>
+                        </a>
+                    </div>
+                    <!-- Blog Post 2 -->
+                    <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden p-4 border border-gray-700">
+                        <a href="#" data-post-id="cloud-migration" class="blog-post-link block hover:underline">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-50">Understanding Cloud Migration</h3>
+                            <p class="text-gray-400 text-sm">Tips and tricks for a seamless transition from on-premise to cloud infrastructure...</p>
+                        </a>
+                    </div>
+                    <!-- Blog Post 3 -->
+                    <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden p-4 border border-gray-700">
+                        <a href="#" data-post-id="cybersecurity" class="blog-post-link block hover:underline">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-50">Cybersecurity in 2024</h3>
+                            <p class="text-gray-400 text-sm">Key trends and strategies to protect your business in a connected world...</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog Post Detail Section (initially hidden) -->
+            <div id="blog-post-detail" class="content-section hidden">
+                <button id="back-to-blog" class="mb-4 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-500 transition-colors duration-200">&larr; Back to Blog</button>
+                <h2 id="post-title" class="text-3xl font-bold mb-4"></h2>
+                <p id="post-content" class="text-black-300 leading-relaxed"></p>
+            </div>
 
             <!-- About Section -->
             <section class="page-section hidden" id="about">
@@ -278,13 +480,44 @@
                         <img src="digital-art-ai-technology-background.jpg" alt="A futuristic digital art image of a human head overlaid with glowing circuit patterns." class="rounded-lg shadow-md max-w-sm h-auto object-cover mx-auto">
                     </div>
                     <div class="md:w-1/2">
-                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">About QAI Technology Solutions</h2>
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">About QAI Core</h2>
                         <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
                             We are a passionate team of innovators dedicated to solving complex problems with simple, effective, and elegant technology. We believe in the power of collaboration and continuous learning to stay ahead of the curve.
                         </p>
                         <p class="text-600 dark:text-gray-300 leading-relaxed">
                             Our journey began with a simple idea: to make advanced technology accessible to everyone. Today, we continue to grow, guided by our core values of integrity, quality, and a relentless pursuit of innovation.
                         </p>
+                    </div>
+                    
+                </div>
+                <!-- Why Choose Us? Section -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 mt-8">
+                    <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">Why Choose QAI Core?</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                        <!-- Reason 1 -->
+                        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-sm">
+                            <span class="text-4xl text-indigo-600 dark:text-indigo-400">🤝</span>
+                            <h4 class="text-lg font-semibold mt-2">Collaborative Partnership</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">We don't just build technology, we build solutions with you.</p>
+                        </div>
+                        <!-- Reason 2 -->
+                        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-sm">
+                            <span class="text-4xl text-indigo-600 dark:text-indigo-400">👨‍💻</span>
+                            <h4 class="text-lg font-semibold mt-2">Deep Expertise</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Our team consists of seasoned experts in AI, cloud, and cybersecurity.</p>
+                        </div>
+                        <!-- Reason 3 -->
+                        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-sm">
+                            <span class="text-4xl text-indigo-600 dark:text-indigo-400">⏱️</span>
+                            <h4 class="text-lg font-semibold mt-2">Rapid Value Creation</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">We focus on delivering tangible results and ROI quickly.</p>
+                        </div>
+                        <!-- Reason 4 -->
+                        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-sm">
+                            <span class="text-4xl text-indigo-600 dark:text-indigo-400">⚙️</span>
+                            <h4 class="text-lg font-semibold mt-2">Tailored Solutions</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Every solution is custom-built for your unique needs, not a one-size-fits-all approach.</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -329,6 +562,11 @@
             <section class="page-section hidden" id="contact-us">
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 max-w-xl mx-auto">
                     <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-6">Contact Us</h2>
+                    <!-- New div for contact information -->
+                    <div class="text-center text-gray-600 dark:text-gray-300 mb-8">
+                        <p class="font-semibold text-gray-800 dark:text-gray-200">Address - Simi Valley, CA</p>
+                        <p class="mt-2 font-semibold text-gray-800 dark:text-gray-200">Phone: +1-818-699-4716</p>
+                    </div>
                     <!-- The form is updated to be functional -->
                     <form id="contact-form" action="https://formspree.io/f/myzdgggv" method="POST">
                         <div class="mb-4">
@@ -359,7 +597,7 @@
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8">
                     <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Privacy Policy</h2>
                     <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from QAI Technology Solutions.
+                        This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from QAI Core.
                     </p>
                     <h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Personal Information We Collect</h3>
                     <p class="text-gray-600 dark:text-gray-300 mb-4">
@@ -381,7 +619,7 @@
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8">
                     <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Terms of Service</h2>
                     <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Welcome to QAI Technology Solutions. By accessing or using our website, you agree to be bound by these Terms of Service. Please read them carefully.
+                        Welcome to QAI Core. By accessing or using our website, you agree to be bound by these Terms of Service. Please read them carefully.
                     </p>
                     <h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Acceptance of Terms</h3>
                     <p class="text-gray-600 dark:text-gray-300 mb-4">
@@ -389,7 +627,7 @@
                     </p>
                     <h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Intellectual Property Rights</h3>
                     <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        All content, trademarks, and data on this website, including but not limited to software, databases, text, graphics, icons, hyperlinks, private information, and designs, are the property of QAI Technology Solutions.
+                        All content, trademarks, and data on this website, including but not limited to software, databases, text, graphics, icons, hyperlinks, private information, and designs, are the property of QAI Core.
                     </p>
                     <h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">User Conduct</h3>
                     <p class="text-600 dark:text-gray-300">
@@ -403,10 +641,14 @@
     <!-- Footer Section -->
     <footer class="bg-gray-800 dark:bg-gray-900 text-white py-6">
         <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2025 QAI Technology Solutions. All rights reserved.</p>
+            <p>&copy; 2025 QAI Core. All rights reserved.</p>
+            <!-- Updated div for contact information in the footer -->
+            <div class="mt-2 text-gray-400 text-sm">
+                <p>Address - Simi Valley, CA | Phone: +1-818-699-4716</p>
+            </div>
             <div class="mt-4">
-                <a href="#privacy-policy" class="nav-link text-gray-400 hover:text-white mx-2">Privacy Policy</a>
-                <a href="#terms-of-service" class="nav-link text-gray-400 hover:text-white mx-2">Terms of Service</a>
+                <a href="#privacy-policy" id="privacy-policy-link" class="nav-link text-gray-400 hover:text-white mx-2">Privacy Policy</a>
+                <a href="#terms-of-service" id="terms-of-service-link" class="nav-link text-gray-400 hover:text-white mx-2">Terms of Service</a>
             </div>
         </div>
     </footer>
@@ -416,6 +658,14 @@
         // Get references to the button and the mobile menu
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
+        const mobileWhatWeDoButton = document.getElementById('mobile-what-we-do');
+        const mobileWhatWeDoDropdown = document.getElementById('mobile-what-we-do-dropdown');
+
+        // --- Desktop Dropdown Fix ---
+        // These elements control the "What We Do" dropdown.
+        const whatWeDoButton = document.getElementById('what-we-do-button');
+        const whatWeDoMenu = document.getElementById('what-we-do-menu');
+        const whatWeDoContainer = document.getElementById('what-we-do-dropdown-container');
 
         // Add an event listener to the button
         mobileMenuButton.addEventListener('click', () => {
@@ -439,6 +689,7 @@
                 // Remove active class from all links
                 navLinks.forEach(navLink => {
                     navLink.classList.remove('active');
+                    
                 });
 
                 // Get the target section's ID from the href and show it
@@ -464,6 +715,57 @@
                 homeSection.classList.remove('hidden');
             }
         });
+
+        // Mobile "What We Do" dropdown toggle
+        mobileWhatWeDoButton.addEventListener('click', () => {
+            mobileWhatWeDoDropdown.classList.toggle('hidden');
+        });
+
+        // --- FIX: New JavaScript for desktop dropdown behavior ---
+        whatWeDoButton.addEventListener('click', (e) => {
+            // Prevent the click from immediately propagating to the document
+            e.stopPropagation();
+            whatWeDoMenu.classList.toggle('active');
+        });
+        
+        // Close the dropdown if the user clicks anywhere else on the page
+        document.addEventListener('click', (e) => {
+            if (!whatWeDoContainer.contains(e.target)) {
+                whatWeDoMenu.classList.remove('active');
+            }
+        });
+
+        // --- New Use Case Carousel Logic ---
+        const useCaseCards = document.querySelectorAll('.use-case-card');
+        const prevCaseBtn = document.getElementById('prev-case-btn');
+        const nextCaseBtn = document.getElementById('next-case-btn');
+        const caseIndicator = document.getElementById('case-indicator');
+        let currentCaseIndex = 0;
+
+        // Function to update the view
+        const updateUseCaseView = () => {
+            // Hide all cards
+            useCaseCards.forEach(card => card.classList.add('hidden'));
+            // Show the current card
+            useCaseCards[currentCaseIndex].classList.remove('hidden');
+            // Update the indicator
+            caseIndicator.textContent = `${currentCaseIndex + 1} of ${useCaseCards.length}`;
+        };
+
+        // Next button listener
+        nextCaseBtn.addEventListener('click', () => {
+            currentCaseIndex = (currentCaseIndex + 1) % useCaseCards.length;
+            updateUseCaseView();
+        });
+
+        // Previous button listener
+        prevCaseBtn.addEventListener('click', () => {
+            currentCaseIndex = (currentCaseIndex - 1 + useCaseCards.length) % useCaseCards.length;
+            updateUseCaseView();
+        });
+        // Initial display of the first use case
+        updateUseCaseView();
+        // --- End of New Use Case Carousel Logic ---
 
         // Handle general form submission for both forms
         function handleFormSubmit(formId, statusId) {
@@ -521,6 +823,132 @@
             handleFormSubmit('contact-form', 'form-status');
             handleFormSubmit('booking-form', 'booking-status');
         });
+
+        // Get all navigation links
+        const homeLink = document.getElementById('home-link');
+        const productsLink = document.getElementById('products-link');
+        const solutionsLink = document.getElementById('solutions-link');
+        const productsToBlogBtn = document.getElementById('products-to-blog');
+        const solutionsToBlogBtn = document.getElementById('solutions-to-blog');
+        const blogPostLinks = document.querySelectorAll('.blog-post-link');
+        const backToBlogBtn = document.getElementById('back-to-blog');
+        const privacypolicyLink = document.getElementById('privacy-policy-link');
+        const termsofserviceLink = document.getElementById('terms-of-service-link');
+        const aboutLink = document.getElementById('about-link');
+        const contactusLink = document.getElementById('conduct-us-link');
+        const bookingLink = document.getElementById('booking-link');
+
+        
+        // Get all content sections
+        const productsContent = document.getElementById('products');
+        const solutionsContent = document.getElementById('solutions');
+        const blogListContent = document.getElementById('blog-content');
+        const blogPostDetailContent = document.getElementById('blog-post-detail');
+        const postTitle = document.getElementById('post-title');
+        const postContent = document.getElementById('post-content');
+
+        // Blog post data to be displayed dynamically
+        const blogPosts = {
+            'generative-ai': {
+                title: 'The Rise of Generative AI',
+                body: 'Generative AI is a type of artificial intelligence that can create new and unique content, such as text, images, music, and videos. Unlike traditional AI that analyzes existing data, generative AI uses complex models to generate new data from scratch. This technology is revolutionizing industries from art and design to software development and scientific research. It is enabling creative possibilities and automating tasks that were once thought to be exclusively human domains.'
+            },
+            'cloud-migration': {
+                title: 'Understanding Cloud Migration',
+                body: 'Cloud migration is the process of moving an organization\'s digital assets, services, databases, IT resources, and applications into the cloud. This transition offers numerous benefits, including improved scalability, enhanced security, and reduced operational costs. However, a successful migration requires careful planning and execution to avoid potential pitfalls. This blog post provides a step-by-step guide to help you navigate the process smoothly and efficiently.'
+            },
+            'cybersecurity': {
+                title: 'Cybersecurity in 2024',
+                body: 'In an increasingly interconnected world, cybersecurity is more critical than ever. In 2024, new threats are emerging rapidly, requiring businesses and individuals to adopt more sophisticated defense strategies. This article explores key trends, including the rise of AI-driven attacks, the importance of zero-trust architecture, and the growing need for robust data protection measures. Staying informed and proactive is the best way to safeguard your digital presence.'
+            }
+        };
+
+        /**
+         * Hides all content sections.
+         */
+        function hideAllContent() {
+            productsContent.classList.add('hidden');
+            solutionsContent.classList.add('hidden');
+            blogListContent.classList.add('hidden');
+            blogPostDetailContent.classList.add('hidden');
+        }
+
+        /**
+         * Handles the click event for navigation links.
+         * @param {Event} event - The click event object.
+         */
+        function handleNavLinkClick(event) {
+            // Prevent default link behavior
+            event.preventDefault();
+            
+            
+            // Get the element that was clicked
+            const clickedElement = event.target;
+            
+            // Determine which content to show based on the clicked link's ID
+            // Check if the clicked element or its parent is a nav link
+            if (clickedElement.closest('#products-link')) {
+                hideAllContent();
+                productsContent.classList.remove('hidden');
+            } else if (clickedElement.closest('#solutions-link')) {
+                hideAllContent();
+                solutionsContent.classList.remove('hidden');
+            } else if (clickedElement.closest('#products-to-blog') || clickedElement.closest('#solutions-to-blog')) {
+                hideAllContent();
+                blogListContent.classList.remove('hidden');
+            } else {
+                // This 'else' block handles any other link that should hide all content    
+                hideAllContent();
+            }
+        }
+
+        /**
+         * Shows the content for a specific blog post.
+         * @param {string} postId - The ID of the blog post to display.
+         */
+        function showBlogPost(postId) {
+            hideAllContent();
+            const postData = blogPosts[postId];
+            if (postData) {
+                postTitle.textContent = postData.title;
+                postContent.textContent = postData.body;
+                blogPostDetailContent.classList.remove('hidden');
+            }
+        }
+
+        // Add event listeners to the navigation links and the new blog buttons
+        homeLink.addEventListener('click', handleNavLinkClick);
+        productsLink.addEventListener('click', handleNavLinkClick);
+        solutionsLink.addEventListener('click', handleNavLinkClick);
+        productsToBlogBtn.addEventListener('click', handleNavLinkClick);
+        solutionsToBlogBtn.addEventListener('click', handleNavLinkClick);
+        privacypolicyLink.addEventListener('click', handleNavLinkClick);
+        termsofserviceLink.addEventListener('click', handleNavLinkClick);
+        aboutLink.addEventListener('click', handleNavLinkClick);
+        contactusLink.addEventListener('click', handleNavLinkClick);
+        bookingLink.addEventListener('click', handleNavLinkClick);
+
+        // Add event listeners for the specific blog post links
+        blogPostLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const postId = link.dataset.postId;
+                showBlogPost(postId);
+            });
+        });
+
+        // Add event listener for the back to blog button
+        backToBlogBtn.addEventListener('click', () => {
+            hideAllContent();
+            blogListContent.classList.remove('hidden');
+        });
+
+        // Initially show the products content when the page loads
+        window.addEventListener('load', () => {
+            productsContent.classList.remove('hidden');
+            
+        });
+        
     </script>
 </body>
 </html>
