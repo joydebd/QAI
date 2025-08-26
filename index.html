@@ -194,13 +194,13 @@
                         <!-- Solution Card 2 -->
                         <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 text-center">
                             <div class="text-5xl text-indigo-600 dark:text-indigo-400 mb-4">🤖</div>
-                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Custom ChatBots</h3>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">AI Assistants</h3>
                             <p class="text-gray-600 dark:text-gray-300">Enhance customer service and automate workflows with intelligent, purpose-built conversational agents.</p>
                         </div>
                          <!-- Solution Card 3 -->
                         <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 text-center">
                             <div class="text-5xl text-indigo-600 dark:text-indigo-400 mb-4">🧠</div>
-                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Custom AI Agents</h3>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Intelligent Automation</h3>
                             <p class="text-gray-600 dark:text-gray-300">Automate complex tasks and decision-making with intelligent, autonomous AI agents.</p>
                         </div>
                         <!-- Solution Card 4 -->
@@ -465,6 +465,14 @@
                             <p class="text-gray-400 text-sm">As AI becomes more integrated into society, ethical considerations are gaining significant attention.</p>
                         </a>
                     </div>
+                    <!-- Blog Post 4 -->
+                    <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden p-4 border border-gray-700">
+                        <a href="#" data-post-id="mcp" class="blog-post-link block hover:underline">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-50">How MCP Powers AI Agents</h3>
+                            <span class="post-date text-sm text-cyan-500">Posted: 25th August, 2025</span>
+                            <p class="text-gray-400 text-sm">MCP enables a new level of capability for AI agents.</p>
+                        </a>
+                    </div>
                 </div>
             </div>
             <!-- Blog Post Detail Section (initially hidden) -->
@@ -567,7 +575,7 @@
                     <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-6">Contact Us</h2>
                     <!-- New div for contact information -->
                     <div class="text-center text-gray-600 dark:text-gray-300 mb-8">
-                        <p class="font-semibold text-gray-800 dark:text-gray-200">Address - Simi Valley, CA</p>
+                        <p class="font-semibold text-gray-800 dark:text-gray-200">Address: Los Angeles, CA</p>
                         <p class="mt-2 font-semibold text-gray-800 dark:text-gray-200">Phone: +1-818-699-4716</p>
                     </div>
                     <!-- The form is updated to be functional -->
@@ -647,7 +655,7 @@
             <p>&copy; 2025 QAI Core. All rights reserved.</p>
             <!-- Updated div for contact information in the footer -->
             <div class="mt-2 text-gray-400 text-sm">
-                <p>Address - Simi Valley, CA | Phone: +1-818-699-4716</p>
+                <p>Address: Los Angeles, CA | Phone: +1-818-699-4716</p>
             </div>
             <div class="mt-4">
                 <a href="#privacy-policy" id="privacy-policy-link" class="nav-link text-gray-400 hover:text-white mx-2">Privacy Policy</a>
@@ -886,6 +894,17 @@
                             'Deepfakes and Misinformation: The use of AI to create hyper-realistic deepfakes is a significant concern, especially in politics and elections. Governments and tech companies are exploring solutions like digital watermarking and content provenance to help users identify AI-generated content.'
                         ]
                     ]
+            },
+            'mcp': {
+                title: 'How MCP Powers AI Agents',
+                body: [
+                    'MCP enables a new level of capability for AI agents by providing them with the means to:',
+                        [
+                            'Access Real-Time Data: An agent can use an MCP server to query a database, access a live web page, or retrieve the latest sales figures, allowing it to make more informed decisions based on up-to-date information.',
+                            'Automate Complex Workflows: An agent can chain together a series of tool calls to complete multi-step tasks.',
+                            'Work with Diverse Tools: There are now MCP servers for a growing list of services, including file systems, Google Maps, Docker, and enterprise.'
+                        ]
+                    ]
             }
         };
 
@@ -1022,7 +1041,7 @@
 
         // Initially show the products content when the page loads
         window.addEventListener('load', () => {
-            productsContent.classList.remove('hidden');
+            //productsContent.classList.remove('hidden');
             
         });
         
