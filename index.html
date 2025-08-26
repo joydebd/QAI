@@ -444,22 +444,25 @@
                     <!-- Blog Post 1 -->
                     <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden p-4 border border-gray-700">
                         <a href="#" data-post-id="generative-ai" class="blog-post-link block hover:underline">
-                            <h3 class="text-xl font-semibold mb-2 text-gray-50">The Rise of Generative AI</h3>
-                            <p class="text-gray-400 text-sm">A deep dive into how generative models are changing the creative landscape...</p>
+                            <h3 class="text-xl font-semibold mb-2 text-gray-50">AI Agents and Automation</h3>
+                            <span class="post-date text-sm text-cyan-500">Posted: 25th August, 2025</span>
+                            <p class="text-gray-400 text-sm">A major trend is the development and use of agentic AI. This refers to autonomous AI systems that can make decisions, plan, and execute taks on behalf of a user or a business.</p>
                         </a>
                     </div>
                     <!-- Blog Post 2 -->
                     <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden p-4 border border-gray-700">
                         <a href="#" data-post-id="cloud-migration" class="blog-post-link block hover:underline">
-                            <h3 class="text-xl font-semibold mb-2 text-gray-50">Understanding Cloud Migration</h3>
-                            <p class="text-gray-400 text-sm">Tips and tricks for a seamless transition from on-premise to cloud infrastructure...</p>
+                            <h3 class="text-xl font-semibold mb-2 text-gray-50">Multimodal and Next-Gen AI</h3>
+                            <span class="post-date text-sm text-cyan-500">Posted: 25th August, 2025</span>
+                            <p class="text-gray-400 text-sm">While Large Language Models(LLms) are still a hot topic, the conversation is expanding to multimodal AI and next-generation models.</p>
                         </a>
                     </div>
                     <!-- Blog Post 3 -->
                     <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden p-4 border border-gray-700">
                         <a href="#" data-post-id="cybersecurity" class="blog-post-link block hover:underline">
-                            <h3 class="text-xl font-semibold mb-2 text-gray-50">Cybersecurity in 2024</h3>
-                            <p class="text-gray-400 text-sm">Key trends and strategies to protect your business in a connected world...</p>
+                            <h3 class="text-xl font-semibold mb-2 text-gray-50">Ethics, Governance, and Environmental Impact</h3>
+                            <span class="post-date text-sm text-cyan-500">Posted: 25th August, 2025</span>
+                            <p class="text-gray-400 text-sm">As AI becomes more integrated into society, ethical considerations are gaining significant attention.</p>
                         </a>
                     </div>
                 </div>
@@ -850,16 +853,39 @@
         // Blog post data to be displayed dynamically
         const blogPosts = {
             'generative-ai': {
-                title: 'The Rise of Generative AI',
-                body: 'Generative AI is a type of artificial intelligence that can create new and unique content, such as text, images, music, and videos. Unlike traditional AI that analyzes existing data, generative AI uses complex models to generate new data from scratch. This technology is revolutionizing industries from art and design to software development and scientific research. It is enabling creative possibilities and automating tasks that were once thought to be exclusively human domains.'
+                title: 'AI Agents and Automation',
+                body: [
+                    'These AI agents can:',
+                        [
+                            'Orchestrate complex workflows by coordinating different AI models, people, and automated systems.',
+                            'Automate business processes from end to end, such as in supply chain management or risk management.',
+                            'Improve efficiency in various industries, including healthcare and finance.'
+                        ]
+                    ]
             },
             'cloud-migration': {
-                title: 'Understanding Cloud Migration',
-                body: 'Cloud migration is the process of moving an organization\'s digital assets, services, databases, IT resources, and applications into the cloud. This transition offers numerous benefits, including improved scalability, enhanced security, and reduced operational costs. However, a successful migration requires careful planning and execution to avoid potential pitfalls. This blog post provides a step-by-step guide to help you navigate the process smoothly and efficiently.'
+                title: 'Multimodal and Next-Gen AI',
+                body: [
+                    'Key Developments and Trends:',
+                        [
+                            'Multimodality is the New Standard: Models like Gemini, GPT-4o, and Claude 3 are leading the charge. They can answer questions about an image, generate a video from a text prompt, or create code based on a diagram. The market for these technologies is experiencing rapid growth, with widespread applications in healthcare, retail, and finance.',
+                            'The Rise of AI Agents: This is the most significant trend in next-gen AI. While we have had chatbots for a while, AI agents are different because they can perform multi-step tasks autonomously. For example, an agent could take a command like "find me a flight and book a hotel," and then use various tools and APIs to complete the entire process. The future of these agents lies in combining large language models (LLMs) with large action models (LAMs) that are better at execution.',
+                            'Focus on Small Language Models (SLMs): While the industry has been focused on building larger and larger LLMs, a new trend is emerging. Research suggests that smaller, more specialized models (SLMs) may be more efficient and practical for many AI agent tasks. They are faster, cheaper to run, and can operate on smaller devices, offering a more scalable and private approach to AI. This shift could help reduce the high computational costs and energy use associated with massive models.',
+                            'AI Integration is Everywhere: Generative AI is no longer a separate application; it is being integrated into the tools and services we use every day, from productivity suites to creative software. This makes AI more accessible to everyone, regardless of their technical knowledge.'
+                        ]
+                    ]
             },
             'cybersecurity': {
-                title: 'Cybersecurity in 2024',
-                body: 'In an increasingly interconnected world, cybersecurity is more critical than ever. In 2024, new threats are emerging rapidly, requiring businesses and individuals to adopt more sophisticated defense strategies. This article explores key trends, including the rise of AI-driven attacks, the importance of zero-trust architecture, and the growing need for robust data protection measures. Staying informed and proactive is the best way to safeguard your digital presence.'
+                title: 'Ethics, Governance, and Environmental Impact',
+                body: [
+                    'Key initiatives include:',
+                        [
+                            'Improved Efficiency: Tech companies are developing more efficient AI algorithms and specialized hardware (like TPUs and GPUs) that can perform the same tasks with less power.',
+                            'Carbon-Aware" Computing: This involves dynamically routing AI workloads to data centers in regions with an abundance of low-carbon electricity, thereby reducing the overall carbon footprint.',
+                            'Global Regulation: The European Union AI Act, which classifies AI systems by risk level, is a landmark piece of legislation. Meanwhile, the U.S. and other nations are focusing on executive orders and national strategies to balance innovation with safety. Countries like India and those in Southeast Asia are also developing their own national and regional frameworks.',
+                            'Deepfakes and Misinformation: The use of AI to create hyper-realistic deepfakes is a significant concern, especially in politics and elections. Governments and tech companies are exploring solutions like digital watermarking and content provenance to help users identify AI-generated content.'
+                        ]
+                    ]
             }
         };
 
@@ -873,45 +899,7 @@
             blogPostDetailContent.classList.add('hidden');
         }
 
-        /**
-         * Toggles the active class on navigation links.
-         * @param {string} targetId - The ID of the target section.
-         
-        function setActiveLink(targetId) {
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + targetId) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        /**
-         * Handles the click event for navigation links.
-         * @param {Event} event - The click event object.
-         
-        function handleNavLinkClick(event) {
-            const targetId = event.currentTarget.getAttribute('href').substring(1);
-            hideAllSections();
-            document.getElementById(targetId).classList.remove('hidden');
-            setActiveLink(targetId);
-            // Hide mobile menu after click
-            if (!mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
-            }
-            // If the user navigated away from the blog, reset the view
-            if (targetId !== 'blog') {
-                blogListContainer.classList.remove('hidden');
-                blogPostDetailSection.classList.add('hidden');
-            }
-        }
-
-        // Add event listeners to the navigation links
-        navLinks.forEach(link => {
-            link.addEventListener('click', handleNavLinkClick);
-        });
-        */
-
+        
         /**
          * Handles the click event for navigation links.
          * @param {Event} event - The click event object.
@@ -956,13 +944,63 @@
         /**
          * Shows the content for a specific blog post.
          * @param {string} postId - The ID of the blog post to display.
-         */
+         
         function showBlogPost(postId) {
             hideAllContent();
             const postData = blogPosts[postId];
             if (postData) {
                 postTitle.textContent = postData.title;
                 postContent.textContent = postData.body;
+                blogPostDetailContent.classList.remove('hidden');
+            }
+        }*/
+
+        function showBlogPost(postId) {
+            // Hide all content initially
+            hideAllContent();
+
+            // Get the data for the specific blog post
+            const postData = blogPosts[postId];
+            
+            // Check if the post data exists
+            if (postData) {
+                // Set the title
+                postTitle.textContent = postData.title;
+
+                // Clear previous content
+                postContent.innerHTML = '';
+
+                // Check the type of the 'body' property to determine how to display it
+                if (Array.isArray(postData.body)) {
+                    // Iterate over each item in the main body array
+                    postData.body.forEach(item => {
+                        if (Array.isArray(item)) {
+                            // If the item is an array, it's a list of bullet points
+                            const ul = document.createElement('ul');
+                            ul.classList.add('list-disc', 'list-inside', 'space-y-2');
+                            item.forEach(point => {
+                                const li = document.createElement('li');
+                                li.textContent = point;
+                                ul.appendChild(li);
+                            });
+                            postContent.appendChild(ul);
+                        } else {
+                            // If the item is a string, it's a regular paragraph
+                            const p = document.createElement('p');
+                            p.classList.add('space-y-4');
+                            p.textContent = item;
+                            postContent.appendChild(p);
+                        }
+                    });
+                } else {
+                    // If the body is a string, it's a regular paragraph
+                    const p = document.createElement('p');
+                    p.classList.add('space-y-4'); // Tailwind class for spacing
+                    p.textContent = postData.body;
+                    postContent.appendChild(p);
+                }
+
+                // Show the blog post container
                 blogPostDetailContent.classList.remove('hidden');
             }
         }
